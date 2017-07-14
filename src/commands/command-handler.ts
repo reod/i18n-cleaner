@@ -2,12 +2,18 @@ import { Command } from './Command';
 import { ListLocales } from './list-locales/ListLocales';
 
 
-const noop = function() {};
+export interface CommandHandler {
+  (name: string): Function
+};
 
-const commands: Map<String, Command> = new Map();
-commands.set('ListLocales', new ListLocales());
+export function emptyExecutor(): void {
+  console.log('No executor found.');
+};
 
-export function handleCommand(name: string ): Function {
-  const executor = commands.get(name).execute || noop;
-  return executor;
+const commands: Map<String, Command> = new Map([
+  ['ListLocales', new ListLocales()]
+]);
+
+export const handleCommand: CommandHandler = function (name: string ): Function {
+  return commands.get(name).execute || emptyExecutor;
 };
