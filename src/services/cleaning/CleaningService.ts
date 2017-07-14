@@ -1,4 +1,4 @@
-export class ObjectCleaner {
+export class CleaningService {
 
   static fillMissingFields(referenceObj: Object, objects: Array<Object>): Array<Object> {
     return objects.map(this.fillMissingFieldsInObj.bind(this, referenceObj));

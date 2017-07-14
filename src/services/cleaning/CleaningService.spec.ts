@@ -1,6 +1,6 @@
-import { ObjectCleaner } from './ObjectCleaner';
+import { CleaningService } from './CleaningService';
 
-describe('ObjectCleaner', () => {
+describe('CleaningService', () => {
   it(`should fill missing fields in objects according to reference object
     if they are simple type`, () => {
     const referenceObject = { a: 'a', b: 'b', c: 'c' };
@@ -10,7 +10,7 @@ describe('ObjectCleaner', () => {
       {}
     ];
 
-    const filledObjects = ObjectCleaner.fillMissingFields(referenceObject, objectsToFill);
+    const filledObjects = CleaningService.fillMissingFields(referenceObject, objectsToFill);
 
     expect(filledObjects.length).toBe(objectsToFill.length);
 
@@ -30,7 +30,7 @@ describe('ObjectCleaner', () => {
       { c: 'c', a: 'a', b: 'b' }
     ];
 
-    const objectsWithSortedKeys = ObjectCleaner.sortFields(referenceObject, objectsToSort);
+    const objectsWithSortedKeys = CleaningService.sortFields(referenceObject, objectsToSort);
     const keysInRefObject = JSON.stringify(Object.keys(referenceObject));
     
     objectsWithSortedKeys.forEach(obj => {
