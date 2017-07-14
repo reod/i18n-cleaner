@@ -31,7 +31,6 @@
   },
   "dependencies": {
     "@types/commander": "^2.9.1",
-    "caporal": "^0.7.0",
     "commander": "^2.11.0"
   }
 }
