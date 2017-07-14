@@ -11,6 +11,7 @@ const commands = new Map([
     ['ListLocales', new ListLocales_1.ListLocales()]
 ]);
 exports.handleCommand = function (name) {
-    return commands.get(name).execute || emptyExecutor;
+    const command = commands.get(name);
+    return command ? command.execute : emptyExecutor;
 };
 //# sourceMappingURL=command-handler.js.map

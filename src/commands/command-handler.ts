@@ -14,6 +14,7 @@ const commands: Map<String, Command> = new Map([
   ['ListLocales', new ListLocales()]
 ]);
 
-export const handleCommand: CommandHandler = function (name: string ): Function {
-  return commands.get(name).execute || emptyExecutor;
+export const handleCommand: CommandHandler = function (name: string): Function {
+  const command: Command = commands.get(name);
+  return command ? command.execute : emptyExecutor;
 };
