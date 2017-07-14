@@ -1,8 +1,8 @@
 import { Command } from './../Command'
 import { readdir } from 'fs';
 import { promisify } from 'util';
-
 const readdirP = promisify(readdir);
+
 
 export class ListLocales implements Command {
   path = './';
