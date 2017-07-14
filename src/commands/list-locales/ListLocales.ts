@@ -1,16 +1,15 @@
-import { Command } from './../Command'
-import { readdir } from 'fs';
-import { promisify } from 'util';
-const readdirP = promisify(readdir);
+import { Command } from './../Command';
+import { FileSystemService } from './../../services/file-system/FileSystemService';
 
 
 export class ListLocales implements Command {
-  path = './';
 
-  execute = async () => {
-    const files = await readdirP(this.path);
+  constructor(private fsService: FileSystemService) {}
 
-    files.forEach((file: string) => {
+  execute = async (path: string) => {
+    const files = await this.fsService.getFileNames(path);
+
+    files.forEach(file => {
       console.log(file);
     });
   }
