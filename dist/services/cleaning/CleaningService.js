@@ -24,7 +24,11 @@ class CleaningService {
         const sorted = {};
         Object.keys(refObj)
             .forEach(key => {
-            sorted[key] = object[key];
+            if (!lodash_1.isPlainObject(refObj[key])) {
+                sorted[key] = object[key];
+                return;
+            }
+            sorted[key] = this.sortFieldsInObj(refObj[key], object[key]);
         });
         return sorted;
     }

@@ -1,6 +1,10 @@
 import { isPlainObject } from 'lodash';
+import * as flat from 'flat';
 import { CleaningService } from './CleaningService';
 
+function isPrimitive(value) {
+  return !isPlainObject(value);
+};
 
 describe('CleaningService', () => {
   it(`should fill missing fields in objects according to reference object
@@ -36,7 +40,7 @@ describe('CleaningService', () => {
 
     function checkKeysByRef(refObj, obj) {
       Object.keys(refObj).forEach(key => {
-        if (!isPlainObject(refObj[key])) {
+        if (isPrimitive(refObj[key])) {
           expect(obj.hasOwnProperty(key)).toBeTruthy();
           return;
         }
@@ -47,18 +51,51 @@ describe('CleaningService', () => {
   });
 
   it('should sort object keys according to reference object', () => {
-    const refObj = { a: 'a', b: 'b', c: 'c' };
+    const refObj = { 
+      a: 'a',
+      b: 'b',
+      c: 'c',
+      d: {
+        ad: 'ad',
+        bd: 'bd',
+        cd: {
+          cda: 'cda'
+        }
+      }
+    };
     const objectsToSort = [
-      { c: 'c', b: 'b', a: 'a' },
-      { c: 'c', a: 'a', b: 'b' }
+      { 
+        a: 'a',
+        b: 'b',
+        c: 'c',
+        d: {
+          ad: 'ad',
+          bd: 'bd',
+          cd: {
+            cda: 'cda'
+          }
+        }
+      },
+      { 
+        a: 'a',
+        c: 'c',
+        b: 'b',
+        d: {
+          cd: {
+            cda: 'cda'
+          },
+          bd: 'bd',
+          ad: 'ad',
+        }
+      }
     ];
 
     const objectsWithSortedKeys = CleaningService.sortFields(refObj, objectsToSort);
-    const keysInRefObject = JSON.stringify(Object.keys(refObj));
+    const keysInRefObject = JSON.stringify(Object.keys(flat(refObj)));
     
     objectsWithSortedKeys.forEach(obj => {
-      const keyInSortedObject =  JSON.stringify(Object.keys(obj));
-      expect(keysInRefObject).toEqual(keyInSortedObject);
+      const keysInSortedObject =  JSON.stringify(Object.keys(flat(obj)));
+      expect(keysInRefObject).toEqual(keysInSortedObject);
     });
   });
 });
