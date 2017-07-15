@@ -51,6 +51,17 @@ describe('CleaningService', () => {
     };
   });
 
+  it('should not add missing fields when sorting keys according to reference object', () => {
+    const refObj = { a: 'a', b: 'b', c: 'c' };
+    const objsToSort = [{ c: 'fc', a: 'fa' }];
+
+    const cService = new CleaningService();
+    const objsWithSortedKeys = cService.sortFields(refObj, objsToSort);
+    const probe = objsWithSortedKeys[0];
+
+    expect(probe.b).toBeUndefined();
+  });
+
   it('should sort object keys according to reference object', () => {
     const refObj = { 
       a: 'a',

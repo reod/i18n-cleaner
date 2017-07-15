@@ -8,19 +8,31 @@ class CleanLocales {
     async execute(command, responder) {
         const files = await this.fsService.getFiles(command.directory);
         const isRefFile = (file) => this.fsService.getFileName(file) === command.referenceFileName;
-        const refFilePath = files.find(isRefFile);
-        if (!refFilePath) {
+        const refLocalePath = files.find(isRefFile);
+        if (!refLocalePath) {
             responder.cannotCleanLocales(new Error('Reference file invalid.'));
             return;
         }
-        const filesToCleanPaths = files.filter(file => !isRefFile(file));
-        if (filesToCleanPaths.length === 0) {
+        const localesToCleanPaths = files.filter(file => !isRefFile(file));
+        if (localesToCleanPaths.length === 0) {
             responder.cannotCleanLocales(new Error('No locales to clean.'));
         }
-        const refLocale = await this.fsService.getFileContentAsObj(refFilePath);
-        const localesToClean = await Promise.all(filesToCleanPaths.map(this.fsService.getFileContentAsObj.bind(this.fsService)));
-        const localesWithSortedFields = this.cService.sortFields(refLocale, localesToClean);
-        responder.localesCleaned(refLocale, localesWithSortedFields);
+        const refLocale = await this.fsService.getFileContentAsObj(refLocalePath);
+        const getContentAsObj = this.fsService.getFileContentAsObj.bind(this.fsService);
+        let localesToClean = await Promise.all(localesToCleanPaths.map(getContentAsObj));
+        if (command.fillMissing) {
+            localesToClean = await this.getFilledLocales(refLocale, localesToClean);
+        }
+        if (command.sort) {
+            localesToClean = await this.getSortedLocales(refLocale, localesToClean);
+        }
+        responder.localesCleaned(refLocale, localesToClean);
+    }
+    async getFilledLocales(refLocale, localesToClean) {
+        return this.cService.fillMissingFields(refLocale, localesToClean);
+    }
+    async getSortedLocales(refLocale, localesToClean) {
+        return this.cService.sortFields(refLocale, localesToClean);
     }
 }
 exports.CleanLocales = CleanLocales;
