@@ -2,7 +2,7 @@
   "language": "Polski",
   "capitol": "Warszawa",
   "units": {
-    "time_hour": "godzina",
-    "currency": "PLN"
+    "currency": "PLN",
+    "time_hour": "godzina"
   }
 }

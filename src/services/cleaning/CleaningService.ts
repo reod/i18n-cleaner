@@ -3,11 +3,11 @@ import { isPlainObject } from 'lodash';
 
 export class CleaningService {
 
-  static fillMissingFields(refObj: Object, objects: Array<Object>): Array<Object> {
+  fillMissingFields(refObj: Object, objects: Array<Object>): Array<Object> {
     return objects.map(this.fillMissingFieldsInObj.bind(this, refObj));
   }
 
-  private static fillMissingFieldsInObj(refObj: any, objectToFill: any): any {
+  private fillMissingFieldsInObj(refObj: any, objectToFill: any): any {
     const filled: any = Object.assign({}, objectToFill);
 
     Object.keys(refObj)
@@ -23,11 +23,11 @@ export class CleaningService {
     return filled;
   }
 
-  static sortFields(refObj: Object, objects: Array<Object>): Array<Object> {
+  sortFields(refObj: Object, objects: Array<Object>): Array<Object> {
     return objects.map(this.sortFieldsInObj.bind(this, refObj));
   }
 
-  private static sortFieldsInObj(refObj: any, object: any): Object {
+  private sortFieldsInObj(refObj: any, object: any): Object {
     const sorted: any = {};
 
     Object.keys(refObj)

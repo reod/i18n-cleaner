@@ -32,7 +32,8 @@ describe('CleaningService', () => {
       }
     ];
 
-    const filledObjects = CleaningService.fillMissingFields(refObj, objectsToFill);
+    const cService = new CleaningService();
+    const filledObjects = cService.fillMissingFields(refObj, objectsToFill);
 
     expect(filledObjects.length).toBe(objectsToFill.length);
 
@@ -90,7 +91,8 @@ describe('CleaningService', () => {
       }
     ];
 
-    const objectsWithSortedKeys = CleaningService.sortFields(refObj, objectsToSort);
+    const cService = new CleaningService();
+    const objectsWithSortedKeys = cService.sortFields(refObj, objectsToSort);
     const keysInRefObject = JSON.stringify(Object.keys(flat(refObj)));
     
     objectsWithSortedKeys.forEach(obj => {
