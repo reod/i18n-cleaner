@@ -1,12 +1,15 @@
 import { promisify } from 'util';
-import { readdir, readFile } from 'fs';
+import { readdir, readFile, writeFile } from 'fs';
 import { join, sep } from 'path';
 
 const readdirAsync = promisify(readdir);
 const readFileAsync = promisify(readFile);
+const writeFileAsync = promisify(writeFile);
 
 
 export class FileSystemService {
+
+  private backupSufix = 'i18n-cleaner_backup_file';
 
   async getFiles(path: string): Promise<Array<string>> {
     const files = await readdirAsync(path);
@@ -32,6 +35,25 @@ export class FileSystemService {
     const asObj = JSON.parse(fileContent);
 
     return asObj;
+  }
+
+  async saveContentToFile(path: string, content: any, doBackup: boolean = true) {
+    if (doBackup) {
+      const backupPath = this.getBackupPath(path);
+      const originalContent = await readFileAsync(path);
+
+      await writeFileAsync(backupPath, originalContent);
+    }
+
+    const contentAsString = JSON.stringify(content, null, 2);
+    await writeFile(path, contentAsString);
+  }
+
+  getBackupPath(path: string): string {
+    const fileName = this.getFileName(path);
+    const backupPath = path.replace(fileName, `${fileName}_${this.backupSufix}`);
+
+    return backupPath;
   }
 
 }

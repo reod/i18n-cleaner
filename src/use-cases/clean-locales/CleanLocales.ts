@@ -40,7 +40,16 @@ export class CleanLocales implements UseCase {
     if (command.sort) {
       localesToClean = await this.getSortedLocales(refLocale, localesToClean);
     }
-    
+
+    if (command.save) {
+      for (let i = 0, l = localesToCleanPaths.length; i < l; i++) {
+        const path = localesToCleanPaths[i];
+        const content = localesToClean[i];
+
+        await this.fsService.saveContentToFile(path, content);
+      }
+    }
+
     responder.localesCleaned(refLocale, localesToClean);
   }
 
