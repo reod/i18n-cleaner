@@ -8,7 +8,7 @@ export class ListLocales implements UseCase {
 
   constructor(private fsService: FileSystemService) {}
 
-  execute = async (command: Command, responder: Responder) => {
+  async execute(command: Command, responder: Responder) {
     let files;
 
     try {
