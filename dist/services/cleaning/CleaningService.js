@@ -1,25 +1,28 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+const lodash_1 = require("lodash");
 class CleaningService {
-    static fillMissingFields(referenceObj, objects) {
-        return objects.map(this.fillMissingFieldsInObj.bind(this, referenceObj));
+    static fillMissingFields(refObj, objects) {
+        return objects.map(this.fillMissingFieldsInObj.bind(this, refObj));
     }
-    static fillMissingFieldsInObj(referenceObj, objectToFill) {
+    static fillMissingFieldsInObj(refObj, objectToFill) {
         const filled = Object.assign({}, objectToFill);
-        Object.keys(referenceObj)
+        Object.keys(refObj)
             .forEach(key => {
-            if (!objectToFill.hasOwnProperty(key)) {
-                filled[key] = referenceObj[key];
+            if (!lodash_1.isPlainObject(refObj[key])) {
+                filled[key] = filled[key] || refObj[key];
+                return;
             }
+            filled[key] = this.fillMissingFieldsInObj(refObj[key], filled[key]);
         });
         return filled;
     }
-    static sortFields(referenceObj, objects) {
-        return objects.map(this.sortFieldsInObj.bind(this, referenceObj));
+    static sortFields(refObj, objects) {
+        return objects.map(this.sortFieldsInObj.bind(this, refObj));
     }
-    static sortFieldsInObj(referenceObj, object) {
+    static sortFieldsInObj(refObj, object) {
         const sorted = {};
-        Object.keys(referenceObj)
+        Object.keys(refObj)
             .forEach(key => {
             sorted[key] = object[key];
         });

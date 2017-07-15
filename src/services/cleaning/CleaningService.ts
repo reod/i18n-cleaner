@@ -1,30 +1,36 @@
+import { isPlainObject } from 'lodash';
+
+
 export class CleaningService {
 
-  static fillMissingFields(referenceObj: Object, objects: Array<Object>): Array<Object> {
-    return objects.map(this.fillMissingFieldsInObj.bind(this, referenceObj));
+  static fillMissingFields(refObj: Object, objects: Array<Object>): Array<Object> {
+    return objects.map(this.fillMissingFieldsInObj.bind(this, refObj));
   }
 
-  private static fillMissingFieldsInObj(referenceObj: Object, objectToFill: Object): Object {
+  private static fillMissingFieldsInObj(refObj: any, objectToFill: any): Object {
     const filled = Object.assign({}, objectToFill);
 
-    Object.keys(referenceObj)
+    Object.keys(refObj)
       .forEach(key => {
-        if (!objectToFill.hasOwnProperty(key)) {
-          filled[key] = referenceObj[key];
+        if (!isPlainObject(refObj[key])) {
+          filled[key] = filled[key] || refObj[key];
+          return;
         }
+
+        filled[key] = this.fillMissingFieldsInObj(refObj[key], filled[key]);
       });
 
     return filled;
   }
 
-  static sortFields(referenceObj: Object, objects: Array<Object>): Array<Object> {
-    return objects.map(this.sortFieldsInObj.bind(this, referenceObj));
+  static sortFields(refObj: Object, objects: Array<Object>): Array<Object> {
+    return objects.map(this.sortFieldsInObj.bind(this, refObj));
   }
 
-  private static sortFieldsInObj(referenceObj: Object, object: Object): Object {
+  private static sortFieldsInObj(refObj: Object, object: Object): Object {
     const sorted = {};
 
-    Object.keys(referenceObj)
+    Object.keys(refObj)
       .forEach(key => {
         sorted[key] = object[key];
       });
