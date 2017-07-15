@@ -12,6 +12,7 @@ export class CleanLocales implements UseCase {
     private cService: CleaningService) {}
 
   execute(command: Command, responder: Responder): void {
+    console.log(command)
     responder.localesCleaned();
     responder.cannotGetLocales(new Error());
     responder.cannotSaveLocales(new Error())

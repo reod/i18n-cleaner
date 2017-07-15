@@ -1,0 +1,8 @@
+{
+  "language": "Polski",
+  "capitol": "Warszawa",
+  "units": {
+    "time_hour": "godzina",
+    "currency": "PLN"
+  }
+}

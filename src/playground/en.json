@@ -1,0 +1,8 @@
+{
+  "language": "English",
+  "capitol": "London",
+  "units": {
+    "time_hour": "hour",
+    "currency": "GBP"
+  }
+}

@@ -6,6 +6,7 @@ class CleanLocales {
         this.cService = cService;
     }
     execute(command, responder) {
+        console.log(command);
         responder.localesCleaned();
         responder.cannotGetLocales(new Error());
         responder.cannotSaveLocales(new Error());

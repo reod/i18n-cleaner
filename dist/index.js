@@ -10,7 +10,7 @@ program
     .alias('l')
     .action(list_locales_1.listLocales);
 program
-    .command('clean [directory]')
+    .command('clean <directory> <reference-file>')
     .description('Clean locales')
     .alias('c')
     .option('-f, --fill-missing', 'Fill missing keys based on reference file')
