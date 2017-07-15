@@ -7,8 +7,8 @@ export class CleaningService {
     return objects.map(this.fillMissingFieldsInObj.bind(this, refObj));
   }
 
-  private static fillMissingFieldsInObj(refObj: any, objectToFill: any): Object {
-    const filled = Object.assign({}, objectToFill);
+  private static fillMissingFieldsInObj(refObj: any, objectToFill: any): any {
+    const filled: any = Object.assign({}, objectToFill);
 
     Object.keys(refObj)
       .forEach(key => {
@@ -27,12 +27,17 @@ export class CleaningService {
     return objects.map(this.sortFieldsInObj.bind(this, refObj));
   }
 
-  private static sortFieldsInObj(refObj: Object, object: Object): Object {
-    const sorted = {};
+  private static sortFieldsInObj(refObj: any, object: any): Object {
+    const sorted: any = {};
 
     Object.keys(refObj)
       .forEach(key => {
-        sorted[key] = object[key];
+        if (!isPlainObject(refObj[key])) {
+          sorted[key] = object[key];
+          return;
+        }
+
+        sorted[key] = this.sortFieldsInObj(refObj[key], object[key]);
       });
 
     return sorted;
