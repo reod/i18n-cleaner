@@ -6,7 +6,8 @@
   "scripts": {
     "test": "jest",
     "dev": "tsc -w",
-    "generate-doc": "typedoc --out docs/ src/"
+    "generate-doc": "typedoc --out docs/ src/",
+    "generate-code-coverage-raport": "jest --coverage"
   },
   "author": "Remek Ambroziak <remek.ambroziak@gmail.com>",
   "license": "ISC",
