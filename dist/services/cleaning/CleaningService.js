@@ -24,6 +24,9 @@ class CleaningService {
         const sorted = {};
         Object.keys(refObj)
             .forEach(key => {
+            if (!object.hasOwnProperty(key)) {
+                return;
+            }
             if (!lodash_1.isPlainObject(refObj[key])) {
                 sorted[key] = object[key];
                 return;

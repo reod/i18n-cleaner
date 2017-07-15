@@ -3,6 +3,7 @@
   "capitol": "London",
   "units": {
     "time_hour": "hour",
-    "currency": "GBP"
+    "currency": "GBP",
+    "drink": "tea"
   }
 }
