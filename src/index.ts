@@ -13,7 +13,7 @@ program
   .action(listLocales);
 
 program
-  .command('clean <directory> <reference-file>')
+  .command('clean <directory> <base-locale>')
   .description('Clean locales')
   .alias('c')
   .option('-f, --fill-missing', 'Fill missing keys based on reference file')
