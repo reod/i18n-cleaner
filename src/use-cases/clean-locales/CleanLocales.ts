@@ -13,21 +13,21 @@ export class CleanLocales implements UseCase {
 
   async execute(command: Command, responder: Responder): Promise<void> {
     const files = await this.fsService.getFiles(command.directory);
-    const isRefFile = (file: string) => this.fsService.getFileName(file) === command.referenceFileName;
-    const refLocalePath = files.find(isRefFile);
+    const isBasefFile = (file: string) => this.fsService.getFileName(file) === command.baseLocale;
+    const baseLocalePath = files.find(isBasefFile);
 
-    if (!refLocalePath) {
-      responder.cannotCleanLocales(new Error('Reference file invalid.'));
+    if (!baseLocalePath) {
+      responder.cannotCleanLocales(new Error('Base file invalid.'));
       return;
     }
 
-    const localesToCleanPaths = files.filter(file => !isRefFile(file));
+    const localesToCleanPaths = files.filter(file => !isBasefFile(file));
 
     if (localesToCleanPaths.length === 0) {
       responder.cannotCleanLocales(new Error('No locales to clean.'));
     }
 
-    const refLocale = await this.fsService.getFileContentAsObj(refLocalePath);
+    const refLocale = await this.fsService.getFileContentAsObj(baseLocalePath);
     const getContentAsObj = this.fsService.getFileContentAsObj.bind(this.fsService);
     let localesToClean = await Promise.all(
       localesToCleanPaths.map(getContentAsObj)
