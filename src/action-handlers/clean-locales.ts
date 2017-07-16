@@ -14,7 +14,11 @@ export async function cleanLocales(directory: string, baseLocale: string, option
 
   await cleanLocales.execute(command, <Responder> {
     localesCleaned(baseLocale: any, cleanedLocales: Array<any>) {
-      console.log('cleaned...', baseLocale, cleanedLocales);
+      console.log('i18n files cleaned.');
+      console.log('base file:');
+      console.log(baseLocale);
+      console.log('cleaned files:');
+      console.log(cleanedLocales);
     },
 
     cannotCleanLocales(e: Error) {
