@@ -8,7 +8,7 @@ const readFileAsync = util_1.promisify(fs_1.readFile);
 const writeFileAsync = util_1.promisify(fs_1.writeFile);
 class FileSystemService {
     constructor() {
-        this.backupSufix = 'i18n-cleaner_backup_file';
+        this.backupSufix = 'i18n-manager_backup_file';
     }
     async getFiles(path) {
         const files = await readdirAsync(path);
