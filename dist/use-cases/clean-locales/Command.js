@@ -1,9 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 class Command {
-    constructor(directory, referenceFileName, fillMissing, sort, save) {
+    constructor(directory, baseLocale, fillMissing, sort, save) {
         this.directory = directory;
-        this.referenceFileName = referenceFileName;
+        this.baseLocale = baseLocale;
         this.fillMissing = fillMissing;
         this.sort = sort;
         this.save = save;
