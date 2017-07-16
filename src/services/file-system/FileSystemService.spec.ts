@@ -58,6 +58,6 @@ describe('FileSystemService', () => {
     const path = createSamplePath();
     const backupPath = fsService.getBackupPath(path);
 
-    expect(backupPath).toEqual('arka/gdynia/kura/wiśnia/legia.win_i18n-cleaner_backup_file');
+    expect(backupPath).toEqual('arka/gdynia/kura/wiśnia/legia.win_i18n-manager_backup_file');
   });
 });

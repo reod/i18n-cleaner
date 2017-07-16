@@ -9,7 +9,7 @@ const writeFileAsync = promisify(writeFile);
 
 export class FileSystemService {
 
-  private backupSufix = 'i18n-cleaner_backup_file';
+  private backupSufix = 'i18n-manager_backup_file';
 
   async getFiles(path: string): Promise<Array<string>> {
     const files = await readdirAsync(path);
