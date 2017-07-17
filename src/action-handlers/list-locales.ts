@@ -4,10 +4,11 @@ import { Command } from './../use-cases/list-locales/Command';
 import { Responder } from './../use-cases/list-locales/Responder';
 
 import { FileSystemService } from './../services/file-system/FileSystemService';
+import { OnlyJsonSanitizeStrategy } from './../services/file-system/OnlyJsonSanitizeStrategy';
 
 export function listLocales(path: string) {
   path = path || './';
-  const listLocales = new ListLocales(new FileSystemService());
+  const listLocales = new ListLocales(new FileSystemService(new OnlyJsonSanitizeStrategy()));
 
   listLocales.execute(new Command(path), <Responder> {
     localesFound(files) {

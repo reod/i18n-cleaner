@@ -58,8 +58,8 @@ export async function createPlayground(): Promise<void> {
   );
 };
 
-export async function clearPlayground(): Promise<void> {
-  await Promise.all(
+export function clearPlayground(): Promise<any[]> {
+  return Promise.all(
     getPlaygroundFiles()
       .map(file => {
         const path = join(getPlaygroundPath(), file.name);
