@@ -1,6 +1,6 @@
 {
   "name": "i18n-manager",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Clean your localization files to easly maintain them.",
   "reopsitory": "https://github.com/reod/i18n-manager.git",
   "main": "bin/src/i18n-manager.js",
