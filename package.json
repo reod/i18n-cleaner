@@ -10,7 +10,8 @@
   "scripts": {
     "test": "jest",
     "dev": "tsc -w",
-    "patch-release": "npm version patch && npm publish && git push --follow-tags",
+    "prepare-release": "npm run generate-doc && npm run generate-code-coverage-raport",
+    "patch-release": "npm run prepare-release && npm version patch && npm publish && git push --follow-tags",
     "generate-doc": "typedoc --out docs/ src/",
     "generate-code-coverage-raport": "jest --coverage",
     "create-playground": "node -e 'require(`./bin/test/test-utils`).createPlayground()'",
