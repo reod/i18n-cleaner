@@ -3,12 +3,14 @@
   "version": "1.0.0",
   "description": "Clean your localization files to easly maintain them.",
   "reopsitory": "https://github.com/reod/i18n-manager.git",
-  "main": "dist/i18n-manager.js",
+  "main": "bin/src/i18n-manager.js",
   "scripts": {
     "test": "jest",
     "dev": "tsc -w",
     "generate-doc": "typedoc --out docs/ src/",
-    "generate-code-coverage-raport": "jest --coverage"
+    "generate-code-coverage-raport": "jest --coverage",
+    "create-playground": "node -e 'require(`./bin/test/test-utils`).createPlayground()'",
+    "clear-playground": "node -e 'require(`./bin/test/test-utils`).clearPlayground()'"
   },
   "author": "Remek Ambroziak <remek.ambroziak@gmail.com>",
   "license": "ISC",
@@ -19,6 +21,9 @@
     "ts-jest": "^20.0.7",
     "typedoc": "^0.7.1",
     "typescript": "^2.4.1"
+  },
+  "bin": {
+    "i18n-manager": "bin/src/i18n-manager.js"
   },
   "jest": {
     "transform": {

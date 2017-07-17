@@ -1,1 +1,0 @@
-{"version":3,"file":"CleanLocales.js","sourceRoot":"","sources":["../../../src/commands/clean-locales/CleanLocales.ts"],"names":[],"mappings":";;AACA,2BAA6B;AAC7B,+BAAiC;AACjC,MAAM,QAAQ,GAAG,gBAAS,CAAC,YAAO,CAAC,CAAC;AAGpC;IAEE,OAAO,CAAC,SAAiB,EAAE,WAAoB,EAAE,IAAa,EAAE,IAAa;QAC3E,OAAO,CAAC,GAAG,CAAC,OAAO,CAAC,CAAA;IACtB,CAAC;CACF;AALD,oCAKC"}
