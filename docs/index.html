@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>i18n-cleaner</title>
+	<title>i18n-manager</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="assets/css/main.css">
@@ -22,7 +22,7 @@
 						<li class="state loading">Preparing search index...</li>
 						<li class="state failure">The search index is not available</li>
 					</ul>
-					<a href="index.html" class="title">i18n-cleaner</a>
+					<a href="index.html" class="title">i18n-manager</a>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -56,7 +56,7 @@
 					<a href="globals.html">Globals</a>
 				</li>
 			</ul>
-			<h1> i18n-cleaner</h1>
+			<h1> i18n-manager</h1>
 		</div>
 	</div>
 </header>
@@ -64,6 +64,69 @@
 	<div class="row">
 		<div class="col-8 col-content">
 			<div class="tsd-panel tsd-typography">
+				<h1 id="i18n-manager">i18n-manager</h1>
+				<p>Tool that helps manage i18n files in your project.</p>
+				<h2 id="install">Install</h2>
+				<pre><code class="lang-sh">npm install -g i18n-manager
+</code></pre>
+				<h2 id="available-options">Available options</h2>
+				<h3 id="clean-i18n-files">Clean i18n files</h3>
+				<pre><code class="lang-sh">i18n-manager list [directory]
+  -f, --fill-missing      Fill missing keys based on base file
+  -a, --sort              Sort keys based on base file
+  -s, --save              Write result to files (creates backup by default)
+</code></pre>
+				<h4 id="options">Options</h4>
+				<p><strong>Important</strong>: If you want to save result of this command use <code>-s</code> flag. It will create backup for default
+				appending <code>_i18n-manager_backup_file</code> sufix to files that are modified.</p>
+				<h4 id="fill-missing-keys-based-on-base-locale">Fill missing keys based on base locale</h4>
+				<pre><code class="lang-sh">-f, --fill-missing      Fill missing keys based on base file
+</code></pre>
+				<h4 id="-example-"><em>Example</em></h4>
+				<p>Given we have two i18n json files – <code>en.json</code>:</p>
+				<pre><code class="lang-json">{
+  <span class="hljs-attr">"language"</span>: <span class="hljs-string">"English"</span>,
+  <span class="hljs-attr">"capitol"</span>: <span class="hljs-string">"London"</span>,
+  <span class="hljs-attr">"units"</span>: {
+    <span class="hljs-attr">"time_hour"</span>: <span class="hljs-string">"hour"</span>,
+    <span class="hljs-attr">"currency"</span>: <span class="hljs-string">"GBP"</span>,
+    <span class="hljs-attr">"drink"</span>: <span class="hljs-string">"tea"</span>
+  }
+}
+</code></pre>
+				<p>... and <code>pl.json</code>:</p>
+				<pre><code class="lang-json">{
+  <span class="hljs-attr">"language"</span>: <span class="hljs-string">"Polski"</span>,
+  <span class="hljs-attr">"capitol"</span>: <span class="hljs-string">"Warszawa"</span>,
+  <span class="hljs-attr">"units"</span>: {
+    <span class="hljs-attr">"time_hour"</span>: <span class="hljs-string">"godzina"</span>,
+    <span class="hljs-attr">"currency"</span>: <span class="hljs-string">"PLN"</span>
+  }
+}
+</code></pre>
+				<p>After running:</p>
+				<pre><code class="lang-sh">i18n-manager clean app/i18n -f en.json
+</code></pre>
+				<p>...we should see output in console:</p>
+				<pre><code>i18n files cleaned.
+base <span class="hljs-string">file:</span>
+{ <span class="hljs-string">language:</span> <span class="hljs-string">'English'</span>,
+<span class="hljs-symbol">  capitol:</span> <span class="hljs-string">'London'</span>,
+<span class="hljs-symbol">  units:</span> { <span class="hljs-string">time_hour:</span> <span class="hljs-string">'hour'</span>, <span class="hljs-string">currency:</span> <span class="hljs-string">'GBP'</span>, <span class="hljs-string">drink:</span> <span class="hljs-string">'tea'</span> } }
+cleaned <span class="hljs-string">files:</span>
+[ { <span class="hljs-string">language:</span> <span class="hljs-string">'Polski'</span>,
+<span class="hljs-symbol">    capitol:</span> <span class="hljs-string">'Warszawa'</span>,
+<span class="hljs-symbol">    units:</span> { <span class="hljs-string">currency:</span> <span class="hljs-string">'PLN'</span>, <span class="hljs-string">time_hour:</span> <span class="hljs-string">'godzina'</span>, <span class="hljs-string">drink:</span> <span class="hljs-string">'tea'</span> } } ]
+</code></pre><p>Missing fields in <code>pl.json</code> should be replaced with values from base <code>en.json</code> file.
+				The most convinient option is to use all options at once:</p>
+				<pre><code class="lang-sh">i18n-manager clean app/i18n -fas en.json
+</code></pre>
+				<p>It will:</p>
+				<ul>
+					<li><strong>fill</strong> missing keys</li>
+					<li><strong>sort</strong> keys based on base file</li>
+					<li><strong>save</strong> result to files and creates backup for all fill that were changed</li>
+				</ul>
 			</div>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
@@ -76,19 +139,52 @@
 						<span>Internals</span>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="modules/_index_.html">"index"</a>
+						<a href="modules/_src_i18n_manager_.html">"src/i18n-<wbr>manager"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_test_test_utils_.html">"test/test-<wbr>utils"</a>
 					</li>
 					<li class="label tsd-is-external">
 						<span>Externals</span>
 					</li>
 					<li class=" tsd-kind-external-module tsd-is-external">
-						<a href="modules/_commands_command_.html">"commands/<wbr>Command"</a>
+						<a href="modules/_src_action_handlers_clean_locales_.html">"src/action-<wbr>handlers/clean-<wbr>locales"</a>
 					</li>
 					<li class=" tsd-kind-external-module tsd-is-external">
-						<a href="modules/_commands_command_handler_.html">"commands/command-<wbr>handler"</a>
+						<a href="modules/_src_action_handlers_list_locales_.html">"src/action-<wbr>handlers/list-<wbr>locales"</a>
 					</li>
 					<li class=" tsd-kind-external-module tsd-is-external">
-						<a href="modules/_commands_list_locales_listlocales_.html">"commands/list-<wbr>locales/<wbr>List<wbr>Locales"</a>
+						<a href="modules/_src_services_cleaning_cleaningservice_.html">"src/services/cleaning/<wbr>Cleaning<wbr>Service"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_src_services_file_system_filelistsanitizestrategy_.html">"src/services/file-<wbr>system/<wbr>File<wbr>List<wbr>Sanitize<wbr>Strategy"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_src_services_file_system_filesystemservice_.html">"src/services/file-<wbr>system/<wbr>File<wbr>System<wbr>Service"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_src_services_file_system_onlyjsonsanitizestrategy_.html">"src/services/file-<wbr>system/<wbr>Only<wbr>Json<wbr>Sanitize<wbr>Strategy"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_src_use_cases_usecase_.html">"src/use-<wbr>cases/<wbr>Use<wbr>Case"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_src_use_cases_clean_locales_cleanlocales_.html">"src/use-<wbr>cases/clean-<wbr>locales/<wbr>Clean<wbr>Locales"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_src_use_cases_clean_locales_command_.html">"src/use-<wbr>cases/clean-<wbr>locales/<wbr>Command"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_src_use_cases_clean_locales_responder_.html">"src/use-<wbr>cases/clean-<wbr>locales/<wbr>Responder"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_src_use_cases_list_locales_command_.html">"src/use-<wbr>cases/list-<wbr>locales/<wbr>Command"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_src_use_cases_list_locales_listlocales_.html">"src/use-<wbr>cases/list-<wbr>locales/<wbr>List<wbr>Locales"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_src_use_cases_list_locales_responder_.html">"src/use-<wbr>cases/list-<wbr>locales/<wbr>Responder"</a>
 					</li>
 				</ul>
 			</nav>
