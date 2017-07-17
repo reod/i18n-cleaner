@@ -1,6 +1,7 @@
 import { promisify } from 'util';
 import { readdir, readFile, writeFile } from 'fs';
 import { join, sep } from 'path';
+import { FileListSanitizeStrategy } from './FileListSanitizeStrategy';
 
 const readdirAsync = promisify(readdir);
 const readFileAsync = promisify(readFile);
@@ -11,11 +12,14 @@ export class FileSystemService {
 
   private backupSufix = 'i18n-manager_backup_file';
 
+  constructor(private sStrategy: FileListSanitizeStrategy) {}
+
   async getFiles(path: string): Promise<Array<string>> {
     const files = await readdirAsync(path);
     const filesWithPath = files.map((file: string) => join(path, file));
+    const sanitized = this.sStrategy.sanitize(filesWithPath);
 
-    return filesWithPath;
+    return sanitized;
   }
 
   getFileName(path: string): string {
@@ -26,7 +30,7 @@ export class FileSystemService {
   async getFileNames(path: string): Promise<Array<string>> {
     const files = await this.getFiles(path);
     const names = files.map(this.getFileName);
-    
+
     return names;
   }
 

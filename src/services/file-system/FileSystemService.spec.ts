@@ -1,44 +1,59 @@
-import { FileSystemService } from './FileSystemService';
+import { readFile, writeFile, unlink } from 'fs';
+import { promisify } from 'util';
 import { join } from 'path';
+import { FileSystemService } from './FileSystemService';
+import { FileListSanitizeStrategy } from './FileListSanitizeStrategy';
+import {
+  getPlaygroundPath,
+  getPlaygroundFiles,
+  getPlaygroundFilesPaths,
+  createSamplePath,
+  createPlayground,
+  clearPlayground
+} from './../../../test/test-utils';
 
-const createSamplePath = (): string => {
-  return join('arka', 'gdynia', 'kura', 'wiśnia', 'legia.win');
-};
+const readFileAsync = promisify(readFile);
+const writeFileAsync = promisify(writeFile);
+const unlinkAsync = promisify(unlink);
 
-const getFilesInThisDir = (): Array<string> => {
-  return ['FileSystemService.spec.ts', 'FileSystemService.ts', 'json-like-mock.js'];
-};
 
 describe('FileSystemService', () => {
-  it(`should return files from specified directory with full paths`, async () => {
-    const path = './src/services/file-system';
-    const fsService = new FileSystemService();
-    const files = getFilesInThisDir()
-      .map(file => join(path, file));
 
-    const filesWithPath = await fsService.getFiles(path);
+  let fsService = null;
+
+  beforeAll(async () => {
+    const notGitKeepsStrategy = <FileListSanitizeStrategy> { 
+      sanitize(files) { return files.filter(name => !/\.gitkeep$/ig.test(name)); }
+    };
+
+    fsService = new FileSystemService(notGitKeepsStrategy);
+
+    await createPlayground();
+  });
+
+  afterAll(clearPlayground);
+
+  it(`should return files from specified directory with full paths`, async () => {
+    const files = getPlaygroundFilesPaths();
+    const filesWithPath = await fsService.getFiles(getPlaygroundPath());
 
     expect(files).toEqual(filesWithPath);
   });
 
   it('should extract file name from given path', () => {
-    const fsService = new FileSystemService();
     const name = fsService.getFileName(createSamplePath());
 
     expect(name).toEqual('legia.win');
   });
 
   it(`should get list of files from specified direcotry`, async () => {
-    const fsService = new FileSystemService();
-    
-    const files = getFilesInThisDir();;
-    const names = await fsService.getFileNames('./src/services/file-system');
+    const files = getPlaygroundFilesPaths().map(fsService.getFileName.bind(fsService));
+    const names = await fsService.getFileNames(getPlaygroundPath());
 
-    expect(files).toEqual(names);
+    expect(names).toEqual(files);
   });
 
   it('should get content of json like file as PJSO', async () => {
-    const fsService = new FileSystemService();
     const mockObj = {
       "myTestJson": true,
       "nestedObject": {
@@ -54,7 +69,6 @@ describe('FileSystemService', () => {
   });
 
   it('should return path of backup', () => {
-    const fsService = new FileSystemService();
     const path = createSamplePath();
     const backupPath = fsService.getBackupPath(path);
 

@@ -10,7 +10,8 @@
       
     },
     "files": [
-        "src/i18n-manager.ts"
+        "src/i18n-manager.ts",
+        "test/test-utils.ts"
     ],
     "exclude": [
         "node_modules",
