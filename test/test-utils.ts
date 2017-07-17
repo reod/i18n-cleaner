@@ -58,14 +58,14 @@ export async function createPlayground(): Promise<void> {
   );
 };
 
-export async function clearPlayground(): Promise<any[]> {
-  return Promise.all(
-    getPlaygroundFiles()
-      .map(file => {
-        const path = join(getPlaygroundPath(), file.name);
-        const backup = `${path}_i18n-manager_backup_file`;
+export async function clearPlayground(): Promise<void> {
+  for (const { name } of getPlaygroundFiles()) {
+    const path = join(getPlaygroundPath(), name);
+    const backup = `${path}_i18n-manager_backup_file`;
 
-        return [unlinkAsync(path), unlink(backup)];
-      })
-  );
+    try {
+      await unlinkAsync(path);
+      await unlinkAsync(backup);
+    } catch (e) {}
+  }
 };

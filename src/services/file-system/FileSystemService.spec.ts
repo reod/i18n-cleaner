@@ -2,7 +2,7 @@ import { readFile, writeFile, unlink } from 'fs';
 import { promisify } from 'util';
 import { join } from 'path';
 import { FileSystemService } from './FileSystemService';
-import { FileListSanitizeStrategy } from './FileListSanitizeStrategy';
+import { AllButNotGitKeepSanitizeStrategy } from './AllButNotGitKeepSanitizeStrategy';
 import {
   getPlaygroundPath,
   getPlaygroundFiles,
@@ -22,16 +22,13 @@ describe('FileSystemService', () => {
   let fsService = null;
 
   beforeAll(async () => {
-    const notGitKeepsStrategy = <FileListSanitizeStrategy> { 
-      sanitize(files) { return files.filter(name => !/\.gitkeep$/ig.test(name)); }
-    };
-
-    fsService = new FileSystemService(notGitKeepsStrategy);
-
+    fsService = new FileSystemService(new AllButNotGitKeepSanitizeStrategy());
     await createPlayground();
   });
 
-  afterAll(clearPlayground);
+  afterAll(async () => {
+    await clearPlayground()
+  });
 
   it(`should return files from specified directory with full paths`, async () => {
     const files = getPlaygroundFilesPaths();

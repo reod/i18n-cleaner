@@ -60,12 +60,15 @@ async function createPlayground() {
 exports.createPlayground = createPlayground;
 ;
 async function clearPlayground() {
-    return Promise.all(getPlaygroundFiles()
-        .map(file => {
-        const path = path_1.join(getPlaygroundPath(), file.name);
+    for (const { name } of getPlaygroundFiles()) {
+        const path = path_1.join(getPlaygroundPath(), name);
         const backup = `${path}_i18n-manager_backup_file`;
-        return [unlinkAsync(path), fs_1.unlink(backup)];
-    }));
+        try {
+            await unlinkAsync(path);
+            await unlinkAsync(backup);
+        }
+        catch (e) { }
+    }
 }
 exports.clearPlayground = clearPlayground;
 ;
