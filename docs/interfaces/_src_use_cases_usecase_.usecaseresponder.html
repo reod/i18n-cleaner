@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>&quot;commands/command-handler&quot; | i18n-cleaner</title>
+	<title>UseCaseResponder | i18n-manager</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -22,7 +22,7 @@
 						<li class="state loading">Preparing search index...</li>
 						<li class="state failure">The search index is not available</li>
 					</ul>
-					<a href="../index.html" class="title">i18n-cleaner</a>
+					<a href="../index.html" class="title">i18n-manager</a>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -56,97 +56,34 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="_commands_command_handler_.html">&quot;commands/command-handler&quot;</a>
+					<a href="../modules/_src_use_cases_usecase_.html">&quot;src/use-cases/UseCase&quot;</a>
+				</li>
+				<li>
+					<a href="_src_use_cases_usecase_.usecaseresponder.html">UseCaseResponder</a>
 				</li>
 			</ul>
-			<h1>External module &quot;commands/command-handler&quot;</h1>
+			<h1>Interface UseCaseResponder</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<section class="tsd-panel-group tsd-index-group">
-				<h2>Index</h2>
-				<section class="tsd-panel tsd-index-panel">
-					<div class="tsd-index-content">
-						<section class="tsd-index-section tsd-is-external">
-							<h3>Interfaces</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-interface tsd-parent-kind-external-module tsd-is-external"><a href="../interfaces/_commands_command_handler_.commandhandler.html" class="tsd-kind-icon">Command<wbr>Handler</a></li>
-							</ul>
-						</section>
-						<section class="tsd-index-section tsd-is-external tsd-is-not-exported">
-							<h3>Variables</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-variable tsd-parent-kind-external-module tsd-is-external tsd-is-not-exported"><a href="_commands_command_handler_.html#commands" class="tsd-kind-icon">commands</a></li>
-							</ul>
-						</section>
-						<section class="tsd-index-section tsd-is-external">
-							<h3>Functions</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-function tsd-parent-kind-external-module tsd-is-external"><a href="_commands_command_handler_.html#emptyexecutor" class="tsd-kind-icon">empty<wbr>Executor</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-external-module tsd-is-external"><a href="_commands_command_handler_.html#handlecommand" class="tsd-kind-icon">handle<wbr>Command</a></li>
-							</ul>
-						</section>
-					</div>
-				</section>
-			</section>
-			<section class="tsd-panel-group tsd-member-group tsd-is-external tsd-is-not-exported">
-				<h2>Variables</h2>
-				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-external-module tsd-is-external tsd-is-not-exported">
-					<a name="commands" class="tsd-anchor"></a>
-					<h3>commands</h3>
-					<div class="tsd-signature tsd-kind-icon">commands<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">String</span><span class="tsd-signature-symbol">, </span><a href="../interfaces/_commands_command_.command.html" class="tsd-signature-type">Command</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> =&nbsp;new Map([[&#x27;ListLocales&#x27;, new ListLocales()]])</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in commands/command-handler.ts:13</li>
+			<section class="tsd-panel tsd-hierarchy">
+				<h3>Hierarchy</h3>
+				<ul class="tsd-hierarchy">
+					<li>
+						<span class="target">UseCaseResponder</span>
+						<ul class="tsd-hierarchy">
+							<li>
+								<a href="_src_use_cases_list_locales_responder_.responder.html" class="tsd-signature-type">Responder</a>
+							</li>
+							<li>
+								<a href="_src_use_cases_clean_locales_responder_.responder.html" class="tsd-signature-type">Responder</a>
+							</li>
 						</ul>
-					</aside>
-				</section>
-			</section>
-			<section class="tsd-panel-group tsd-member-group tsd-is-external">
-				<h2>Functions</h2>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module tsd-is-external">
-					<a name="emptyexecutor" class="tsd-anchor"></a>
-					<h3>empty<wbr>Executor</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module tsd-is-external">
-						<li class="tsd-signature tsd-kind-icon">empty<wbr>Executor<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in commands/command-handler.ts:9</li>
-								</ul>
-							</aside>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module tsd-is-external">
-					<a name="handlecommand" class="tsd-anchor"></a>
-					<h3>handle<wbr>Command</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module tsd-is-external">
-						<li class="tsd-signature tsd-kind-icon">handle<wbr>Command<span class="tsd-signature-symbol">(</span>name<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Function</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in commands/command-handler.ts:17</li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>name: <span class="tsd-signature-type">string</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Function</span></h4>
-						</li>
-					</ul>
-				</section>
+					</li>
+				</ul>
 			</section>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
@@ -159,36 +96,70 @@
 						<span>Internals</span>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="_index_.html">"index"</a>
+						<a href="../modules/_src_i18n_manager_.html">"src/i18n-<wbr>manager"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_test_test_utils_.html">"test/test-<wbr>utils"</a>
 					</li>
 					<li class="label tsd-is-external">
 						<span>Externals</span>
 					</li>
 					<li class=" tsd-kind-external-module tsd-is-external">
-						<a href="_commands_command_.html">"commands/<wbr>Command"</a>
-					</li>
-					<li class="current tsd-kind-external-module tsd-is-external">
-						<a href="_commands_command_handler_.html">"commands/command-<wbr>handler"</a>
+						<a href="../modules/_src_action_handlers_clean_locales_.html">"src/action-<wbr>handlers/clean-<wbr>locales"</a>
 					</li>
 					<li class=" tsd-kind-external-module tsd-is-external">
-						<a href="_commands_list_locales_listlocales_.html">"commands/list-<wbr>locales/<wbr>List<wbr>Locales"</a>
+						<a href="../modules/_src_action_handlers_list_locales_.html">"src/action-<wbr>handlers/list-<wbr>locales"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="../modules/_src_services_cleaning_cleaningservice_.html">"src/services/cleaning/<wbr>Cleaning<wbr>Service"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="../modules/_src_services_file_system_filelistsanitizestrategy_.html">"src/services/file-<wbr>system/<wbr>File<wbr>List<wbr>Sanitize<wbr>Strategy"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="../modules/_src_services_file_system_filesystemservice_.html">"src/services/file-<wbr>system/<wbr>File<wbr>System<wbr>Service"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="../modules/_src_services_file_system_onlyjsonsanitizestrategy_.html">"src/services/file-<wbr>system/<wbr>Only<wbr>Json<wbr>Sanitize<wbr>Strategy"</a>
+					</li>
+					<li class="current tsd-kind-external-module tsd-is-external">
+						<a href="../modules/_src_use_cases_usecase_.html">"src/use-<wbr>cases/<wbr>Use<wbr>Case"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="../modules/_src_use_cases_clean_locales_cleanlocales_.html">"src/use-<wbr>cases/clean-<wbr>locales/<wbr>Clean<wbr>Locales"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="../modules/_src_use_cases_clean_locales_command_.html">"src/use-<wbr>cases/clean-<wbr>locales/<wbr>Command"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="../modules/_src_use_cases_clean_locales_responder_.html">"src/use-<wbr>cases/clean-<wbr>locales/<wbr>Responder"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="../modules/_src_use_cases_list_locales_command_.html">"src/use-<wbr>cases/list-<wbr>locales/<wbr>Command"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="../modules/_src_use_cases_list_locales_listlocales_.html">"src/use-<wbr>cases/list-<wbr>locales/<wbr>List<wbr>Locales"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="../modules/_src_use_cases_list_locales_responder_.html">"src/use-<wbr>cases/list-<wbr>locales/<wbr>Responder"</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-external">
-						<a href="../interfaces/_commands_command_handler_.commandhandler.html" class="tsd-kind-icon">Command<wbr>Handler</a>
+						<a href="_src_use_cases_usecase_.usecase.html" class="tsd-kind-icon">Use<wbr>Case</a>
 					</li>
-					<li class=" tsd-kind-variable tsd-parent-kind-external-module tsd-is-external tsd-is-not-exported">
-						<a href="_commands_command_handler_.html#commands" class="tsd-kind-icon">commands</a>
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-external">
+						<a href="_src_use_cases_usecase_.usecasecommand.html" class="tsd-kind-icon">Use<wbr>Case<wbr>Command</a>
 					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-external-module tsd-is-external">
-						<a href="_commands_command_handler_.html#emptyexecutor" class="tsd-kind-icon">empty<wbr>Executor</a>
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-interface tsd-parent-kind-external-module tsd-is-external">
+						<a href="_src_use_cases_usecase_.usecaseresponder.html" class="tsd-kind-icon">Use<wbr>Case<wbr>Responder</a>
 					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-external-module tsd-is-external">
-						<a href="_commands_command_handler_.html#handlecommand" class="tsd-kind-icon">handle<wbr>Command</a>
-					</li>
+				</ul>
+				<ul class="after-current">
 				</ul>
 			</nav>
 		</div>
