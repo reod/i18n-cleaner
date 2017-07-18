@@ -23,12 +23,15 @@
   "author": "Remek Ambroziak <remek.ambroziak@gmail.com>",
   "license": "ISC",
   "devDependencies": {
-    "@types/jest": "^20.0.2",
+    "@types/jest": "^20.0.4",
+    "@types/sinon": "^2.3.3",
     "flat": "^2.0.1",
     "jest": "^20.0.4",
+    "nock": "^9.0.14",
+    "sinon": "^2.3.8",
     "ts-jest": "^20.0.7",
     "typedoc": "^0.7.1",
-    "typescript": "^2.4.1"
+    "typescript": "^2.4.2"
   },
   "bin": {
     "i18n-manager": "bin/src/i18n-manager.js"
@@ -46,7 +49,10 @@
     ]
   },
   "dependencies": {
+    "@types/axios": "^0.14.0",
     "@types/commander": "^2.9.1",
+    "@types/flat": "0.0.28",
+    "axios": "^0.16.2",
     "commander": "^2.11.0",
     "lodash": "^4.17.4"
   }

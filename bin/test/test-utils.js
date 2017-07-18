@@ -34,6 +34,74 @@ function getPlaygroundFiles() {
                     "currency": "PLN"
                 }
             }
+        },
+        {
+            name: 'us.json',
+            content: {
+                "deal_type": {
+                    "shopping": "shopping",
+                    "travel": "travel",
+                    "local": "local",
+                    "featured": "featured"
+                },
+                "deal_status": {
+                    "preview": "preview",
+                    "ready": "ready",
+                    "pause": "paused",
+                    "special": "special",
+                    "sold_out": "sold out",
+                    "coming_soon": "coming soon",
+                    "ended": "deal ended"
+                },
+                "language": "English",
+                "capitol": "London",
+                "fresh_deals": "recent deals",
+                "bestseller": "bestseller",
+                "more_local_deals": "more local deals",
+                "more_shopping_deals": "more shopping deals",
+                "buyers": "buyers",
+                "buy": "buy",
+                "old_price": "old price",
+                "new_price": "new price",
+                "address": "address",
+                "map": "map",
+                "hightlights": "hightlights",
+                "terms": "terms",
+                "booking": "booking",
+                "home_page": "home page",
+                "about_page": "about page",
+                "loading": "loading",
+                "search": "search",
+                "search_query": "search query",
+                "all": "all",
+                "sign_in": "Sign in",
+                "email": "email address",
+                "password": "Password",
+                "remember_me": "Rememeber me",
+                "send": "Send",
+                "sign_up": "Sign up",
+                "name": "Name",
+                "surname": "Surname",
+                "password_repeat": "Repeat password",
+                "tos_agreement": "I agree to terms",
+                "dashboard": "Dashboard",
+                "sign_out": "Sign out",
+                "api_error": "Fatal error",
+                "used_deals": "Used deals",
+                "my_deals": "My deals",
+                "expires": "Expires",
+                "bought": "Bought",
+                "valid_codes": "Deals",
+                "on_the_way": "On the way",
+                "deal_history": "Deal hitory",
+                "search_placeholder": "Search Let's deal",
+                "search_submit": "Search",
+                "my_account": "My account",
+                "support": "Support",
+                "where_are_you": "Where are you?",
+                "why_select_location": "In order to show you local deals we need to know your approximate location.",
+                "detect": "Detect"
+            }
         }
     ];
 }
