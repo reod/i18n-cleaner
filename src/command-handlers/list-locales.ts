@@ -17,7 +17,7 @@ export function listLocales(path: string) {
       });
     },
     cannotGetLocales(e) {
-      console.log(e);
+      console.log('Cannot list locales: ', e.message);
     }
   });
 
