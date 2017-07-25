@@ -2,13 +2,22 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const program = require("commander");
-const list_locales_1 = require("./action-handlers/list-locales");
-const clean_locales_1 = require("./action-handlers/clean-locales");
+const list_locales_1 = require("./command-handlers/list-locales");
+const clean_locales_1 = require("./command-handlers/clean-locales");
+const translate_locales_1 = require("./command-handlers/translate-locales");
 program
     .command('list [directory]')
     .description('List available locales')
     .alias('l')
     .action(list_locales_1.listLocales);
+program
+    .command('translate <base-locale-path> <source-launguage> <target-language>')
+    .description('Translate locales.')
+    .alias('t')
+    .option('-o, --override-existing', 'Override existing values (default false)')
+    .option('-n, --output-file-name', 'Output fille name (default [target-locale].json)')
+    .option('-s, --save', 'Write result to files (creates backup by default)')
+    .action(translate_locales_1.translateLocales);
 program
     .command('clean <directory> <base-locale>')
     .description('Clean locales')

@@ -25,7 +25,7 @@ export async function cleanLocales(directory: string, baseLocale: string, option
     },
 
     cannotCleanLocales(e: Error) {
-      console.log(e);
+      console.log('Cannot clean locales:', e.message);
     }
   });
 };
