@@ -14,7 +14,7 @@ export class FileSystemService {
 
   constructor(private sStrategy: FileListSanitizeStrategy) {}
 
-  async getFiles(path: string): Promise<Array<string>> {
+  async getFiles(path: string): Promise<string[]> {
     const files = await readdirAsync(path);
     const filesWithPath = files.map((file: string) => join(path, file));
     const sanitized = this.sStrategy.sanitize(filesWithPath);
@@ -24,17 +24,17 @@ export class FileSystemService {
 
   getFileName(path: string): string {
     const parts = path.split(sep);
-    return parts[parts.length -1];
+    return parts[parts.length - 1];
   }
 
-  async getFileNames(path: string): Promise<Array<string>> {
+  async getFileNames(path: string): Promise<string[]> {
     const files = await this.getFiles(path);
     const names = files.map(this.getFileName);
 
     return names;
   }
 
-  async getFileContentAsObj(path: string): Promise<Object> {
+  async getFileContentAsObj(path: string): Promise<object> {
     const fileContent = await readFileAsync(path);
     const asObj = JSON.parse(fileContent);
 

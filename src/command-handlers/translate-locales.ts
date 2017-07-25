@@ -12,18 +12,18 @@ export async function translateLocales(baseLocalePath: string, sourceLng: string
   const outputFileName = options.outputFileName || `${targetLng}.json`;
   const save = options.save || false;
 
-  const translateLocales = new TranslateLocales(
+  const translateLocalesUC = new TranslateLocales(
     new FileSystemService(new OnlyJsonSanitizeStrategy()),
     new GoogleTranslationService(new GoogleTranslateAPIParser(GoogleTranslationService.BATH_REQ_SEP))
   );
-  
+
   const command = new Command(
     baseLocalePath, sourceLng, targetLng,
     overrideExisting, outputFileName, save
   );
 
-  await translateLocales.execute(command, <Responder> {
-    localesTranslated(base: any, translated: Array<any>): void {
+  await translateLocalesUC.execute(command, {
+    localesTranslated(base: any, translated: any[]): void {
       console.log('Locale translated.');
       // console.log('source:');
       // console.log(base);
@@ -34,5 +34,5 @@ export async function translateLocales(baseLocalePath: string, sourceLng: string
     cannotTranslateLocales(e: Error) {
       console.log('Cannot translate locale', e.message);
     }
-  });
-};
+  } as Responder);
+}

@@ -5,9 +5,7 @@ class GoogleTranslateAPIParser {
         this.separator = separator;
     }
     parse(response) {
-        console.log('ress', response);
         const translations = this.extractTranslations(response);
-        console.log('transki', translations);
         const values = this.getTranslatedValues(translations);
         return values;
     }

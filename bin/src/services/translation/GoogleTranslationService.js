@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const flat_1 = require("flat");
 const axios_1 = require("axios");
-const httpAdapter = require('axios/lib/adapters/http');
+const httpAdapter = require("axios/lib/adapters/http");
 class GoogleTranslationService {
     constructor(apiResponseParser) {
         this.apiUrl = 'https://translate.googleapis.com/translate_a/single?client=gtx';
@@ -28,7 +28,6 @@ class GoogleTranslationService {
             keysStr += i === all.length - 1 ? '' : GoogleTranslationService.BATH_REQ_SEP;
             return keysStr;
         }, baseUrl);
-        console.log('urreeke', url);
         return url;
     }
     applyTranslation(translatedValues, locale, overrideExisting) {
@@ -36,7 +35,6 @@ class GoogleTranslationService {
         const translated = flat_1.flatten(locale);
         Object.keys(flattenOryginal)
             .forEach((key, i) => {
-            console.log('gona replace', translated[key], 'with', translatedValues[i]);
             if (overrideExisting || translated[key] !== translatedValues[i]) {
                 translated[key] = translatedValues[i];
             }

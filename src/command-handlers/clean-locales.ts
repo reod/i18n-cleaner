@@ -10,16 +10,16 @@ export async function cleanLocales(directory: string, baseLocale: string, option
   const sort = options.sort || false;
   const save = options.save || false;
 
-  const cleanLocales = new CleanLocales(
+  const cleanLocalesUC = new CleanLocales(
     new FileSystemService(new OnlyJsonSanitizeStrategy()), new CleaningService()
   );
   const command = new Command(directory, baseLocale, fillMissing, sort, save);
 
-  await cleanLocales.execute(command, <Responder> {
-    localesCleaned(baseLocale: any, cleanedLocales: Array<any>) {
+  await cleanLocalesUC.execute(command, {
+    localesCleaned(base: any, cleanedLocales: any[]) {
       console.log('i18n files cleaned.');
       console.log('base file:');
-      console.log(baseLocale);
+      console.log(base);
       console.log('cleaned files:');
       console.log(cleanedLocales);
     },
@@ -27,5 +27,5 @@ export async function cleanLocales(directory: string, baseLocale: string, option
     cannotCleanLocales(e: Error) {
       console.log('Cannot clean locales:', e.message);
     }
-  });
-};
+  } as Responder);
+}

@@ -5,7 +5,7 @@ import { Responder } from './Responder';
 import { FileSystemService } from './../../services/file-system/FileSystemService';
 import { FileListSanitizeStrategy } from './../../services/file-system/FileListSanitizeStrategy';
 import { GoogleTranslationService } from './../../services/translation/GoogleTranslationService';
-import { TranslateLocales } from './TranslateLocales'
+import { TranslateLocales } from './TranslateLocales';
 
 
 describe('TranslateLocales use case', () => {
@@ -18,8 +18,8 @@ describe('TranslateLocales use case', () => {
     tService = sinon.createStubInstance(GoogleTranslationService);
     tlUseCase = new TranslateLocales(fsService, tService);
   });
-  
-  it('should get created', () => { 
+
+  it('should get created', () => {
     expect(tlUseCase).toBeInstanceOf(TranslateLocales);
   });
 });

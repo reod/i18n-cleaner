@@ -4,12 +4,12 @@ import { CleaningService } from './CleaningService';
 
 function isPrimitive(value) {
   return !isPlainObject(value);
-};
+}
 
 describe('CleaningService', () => {
   it(`should fill missing fields in objects according to reference object
     if they are simple type`, () => {
-    const refObj = { 
+    const refObj = {
       a: 'a',
       b: 'b',
       c: 'c',
@@ -24,7 +24,7 @@ describe('CleaningService', () => {
     const objectsToFill = [
       { c: 'fc' },
       { a: 'fa', b: 'fb' },
-      { 
+      {
         c: 'fa',
         d: {
           bd: 'fbd'
@@ -39,16 +39,16 @@ describe('CleaningService', () => {
 
     filledObjects.forEach(checkKeysByRef.bind(null, refObj));
 
-    function checkKeysByRef(refObj, obj) {
-      Object.keys(refObj).forEach(key => {
-        if (isPrimitive(refObj[key])) {
+    function checkKeysByRef(refeObj, obj) {
+      Object.keys(refeObj).forEach(key => {
+        if (isPrimitive(refeObj[key])) {
           expect(obj.hasOwnProperty(key)).toBeTruthy();
           return;
         }
 
-        checkKeysByRef(refObj[key], obj[key]);
+        checkKeysByRef(refeObj[key], obj[key]);
       });
-    };
+    }
   });
 
   it('should not add missing fields when sorting keys according to reference object', () => {
@@ -63,7 +63,7 @@ describe('CleaningService', () => {
   });
 
   it('should sort object keys according to reference object', () => {
-    const refObj = { 
+    const refObj = {
       a: 'a',
       b: 'b',
       c: 'c',
@@ -76,7 +76,7 @@ describe('CleaningService', () => {
       }
     };
     const objectsToSort = [
-      { 
+      {
         a: 'a',
         b: 'b',
         c: 'c',
@@ -88,7 +88,7 @@ describe('CleaningService', () => {
           }
         }
       },
-      { 
+      {
         a: 'a',
         c: 'c',
         b: 'b',
@@ -105,7 +105,7 @@ describe('CleaningService', () => {
     const cService = new CleaningService();
     const objectsWithSortedKeys = cService.sortFields(refObj, objectsToSort);
     const keysInRefObject = JSON.stringify(Object.keys(flat(refObj)));
-    
+
     objectsWithSortedKeys.forEach(obj => {
       const keysInSortedObject =  JSON.stringify(Object.keys(flat(obj)));
       expect(keysInRefObject).toEqual(keysInSortedObject);

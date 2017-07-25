@@ -36,7 +36,7 @@ export class CleanLocales implements UseCase {
     if (command.fillMissing) {
       localesToClean = await this.getFilledLocales(refLocale, localesToClean);
     }
-    
+
     if (command.sort) {
       localesToClean = await this.getSortedLocales(refLocale, localesToClean);
     }
@@ -53,11 +53,11 @@ export class CleanLocales implements UseCase {
     responder.localesCleaned(refLocale, localesToClean);
   }
 
-  private async getFilledLocales(refLocale: any, localesToClean: Array<any>): Promise<Array<any>> {
+  private async getFilledLocales(refLocale: any, localesToClean: any[]): Promise<any[]> {
     return this.cService.fillMissingFields(refLocale, localesToClean);
   }
 
-  private async getSortedLocales(refLocale: any, localesToClean: Array<any>): Promise<Array<any>> {
+  private async getSortedLocales(refLocale: any, localesToClean: any[]): Promise<any[]> {
     return this.cService.sortFields(refLocale, localesToClean);
   }
 }

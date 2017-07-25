@@ -34,10 +34,12 @@ class TranslateLocales {
         responder.localesTranslated(baseLocale, translated);
     }
     validateLocaleCode(locale) {
-        if (locale.length === 0)
+        if (locale.length === 0) {
             return false;
-        if (locale.length > 4)
+        }
+        if (locale.length > 4) {
             return false;
+        }
         return true;
     }
 }

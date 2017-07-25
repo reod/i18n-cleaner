@@ -1,3 +1,3 @@
 export interface FileListSanitizeStrategy {
-    sanitize(files: Array<string>): Array<string>;
+    sanitize(files: string[]): string[];
 }

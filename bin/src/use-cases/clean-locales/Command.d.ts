@@ -1,8 +1,8 @@
 export declare class Command {
     directory: string;
     baseLocale: string;
-    fillMissing: Boolean;
-    sort: Boolean;
-    save: Boolean;
-    constructor(directory: string, baseLocale: string, fillMissing: Boolean, sort: Boolean, save: Boolean);
+    fillMissing: boolean;
+    sort: boolean;
+    save: boolean;
+    constructor(directory: string, baseLocale: string, fillMissing: boolean, sort: boolean, save: boolean);
 }

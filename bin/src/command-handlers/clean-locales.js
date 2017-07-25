@@ -9,13 +9,13 @@ async function cleanLocales(directory, baseLocale, options) {
     const fillMissing = options.fillMissing || false;
     const sort = options.sort || false;
     const save = options.save || false;
-    const cleanLocales = new CleanLocales_1.CleanLocales(new FileSystemService_1.FileSystemService(new OnlyJsonSanitizeStrategy_1.OnlyJsonSanitizeStrategy()), new CleaningService_1.CleaningService());
+    const cleanLocalesUC = new CleanLocales_1.CleanLocales(new FileSystemService_1.FileSystemService(new OnlyJsonSanitizeStrategy_1.OnlyJsonSanitizeStrategy()), new CleaningService_1.CleaningService());
     const command = new Command_1.Command(directory, baseLocale, fillMissing, sort, save);
-    await cleanLocales.execute(command, {
-        localesCleaned(baseLocale, cleanedLocales) {
+    await cleanLocalesUC.execute(command, {
+        localesCleaned(base, cleanedLocales) {
             console.log('i18n files cleaned.');
             console.log('base file:');
-            console.log(baseLocale);
+            console.log(base);
             console.log('cleaned files:');
             console.log(cleanedLocales);
         },
@@ -25,5 +25,4 @@ async function cleanLocales(directory, baseLocale, options) {
     });
 }
 exports.cleanLocales = cleanLocales;
-;
 //# sourceMappingURL=clean-locales.js.map

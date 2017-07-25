@@ -3,5 +3,5 @@ export interface UseCaseCommand {}
 export interface UseCaseResponder {}
 
 export interface UseCase {
-  execute(command: UseCaseCommand, responder: UseCaseResponder): void
+  execute(command: UseCaseCommand, responder: UseCaseResponder): void;
 }

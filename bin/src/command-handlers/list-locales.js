@@ -6,8 +6,8 @@ const FileSystemService_1 = require("./../services/file-system/FileSystemService
 const OnlyJsonSanitizeStrategy_1 = require("./../services/file-system/OnlyJsonSanitizeStrategy");
 function listLocales(path) {
     path = path || './';
-    const listLocales = new ListLocales_1.ListLocales(new FileSystemService_1.FileSystemService(new OnlyJsonSanitizeStrategy_1.OnlyJsonSanitizeStrategy()));
-    listLocales.execute(new Command_1.Command(path), {
+    const listLocalesUC = new ListLocales_1.ListLocales(new FileSystemService_1.FileSystemService(new OnlyJsonSanitizeStrategy_1.OnlyJsonSanitizeStrategy()));
+    listLocalesUC.execute(new Command_1.Command(path), {
         localesFound(files) {
             files.forEach(file => {
                 console.log(file);
@@ -19,5 +19,4 @@ function listLocales(path) {
     });
 }
 exports.listLocales = listLocales;
-;
 //# sourceMappingURL=list-locales.js.map

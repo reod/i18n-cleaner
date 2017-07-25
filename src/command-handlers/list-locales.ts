@@ -8,9 +8,9 @@ import { OnlyJsonSanitizeStrategy } from './../services/file-system/OnlyJsonSani
 
 export function listLocales(path: string) {
   path = path || './';
-  const listLocales = new ListLocales(new FileSystemService(new OnlyJsonSanitizeStrategy()));
+  const listLocalesUC = new ListLocales(new FileSystemService(new OnlyJsonSanitizeStrategy()));
 
-  listLocales.execute(new Command(path), <Responder> {
+  listLocalesUC.execute(new Command(path), {
     localesFound(files) {
       files.forEach(file => {
         console.log(file);
@@ -19,6 +19,6 @@ export function listLocales(path: string) {
     cannotGetLocales(e) {
       console.log('Cannot list locales: ', e.message);
     }
-  });
+  } as Responder);
 
-};
+}

@@ -1,8 +1,8 @@
-import { FileListSanitizeStrategy } from './FileListSanitizeStrategy'
+import { FileListSanitizeStrategy } from './FileListSanitizeStrategy';
 
 
 export class AllButNotGitKeepSanitizeStrategy implements FileListSanitizeStrategy {
-  sanitize(files: Array<string>): Array<string> {
+  sanitize(files: string[]): string[] {
     return files.filter(name => name && !/\.gitkeep$/ig.test(name));
   }
 }

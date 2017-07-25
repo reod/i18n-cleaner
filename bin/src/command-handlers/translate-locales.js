@@ -10,9 +10,9 @@ async function translateLocales(baseLocalePath, sourceLng, targetLng, options) {
     const overrideExisting = options.overrideExisting || false;
     const outputFileName = options.outputFileName || `${targetLng}.json`;
     const save = options.save || false;
-    const translateLocales = new TranslateLocales_1.TranslateLocales(new FileSystemService_1.FileSystemService(new OnlyJsonSanitizeStrategy_1.OnlyJsonSanitizeStrategy()), new GoogleTranslationService_1.GoogleTranslationService(new GoogleTranslateAPIParser_1.GoogleTranslateAPIParser(GoogleTranslationService_1.GoogleTranslationService.BATH_REQ_SEP)));
+    const translateLocalesUC = new TranslateLocales_1.TranslateLocales(new FileSystemService_1.FileSystemService(new OnlyJsonSanitizeStrategy_1.OnlyJsonSanitizeStrategy()), new GoogleTranslationService_1.GoogleTranslationService(new GoogleTranslateAPIParser_1.GoogleTranslateAPIParser(GoogleTranslationService_1.GoogleTranslationService.BATH_REQ_SEP)));
     const command = new Command_1.Command(baseLocalePath, sourceLng, targetLng, overrideExisting, outputFileName, save);
-    await translateLocales.execute(command, {
+    await translateLocalesUC.execute(command, {
         localesTranslated(base, translated) {
             console.log('Locale translated.');
             console.log('translated:');
@@ -24,5 +24,4 @@ async function translateLocales(baseLocalePath, sourceLng, targetLng, options) {
     });
 }
 exports.translateLocales = translateLocales;
-;
 //# sourceMappingURL=translate-locales.js.map
