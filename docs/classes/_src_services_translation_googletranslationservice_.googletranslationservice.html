@@ -96,6 +96,7 @@
 						<section class="tsd-index-section tsd-is-external">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external"><a href="_src_services_translation_googletranslationservice_.googletranslationservice.html#apiresponseparser" class="tsd-kind-icon">api<wbr>Response<wbr>Parser</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external"><a href="_src_services_translation_googletranslationservice_.googletranslationservice.html#apiurl" class="tsd-kind-icon">api<wbr>Url</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external"><a href="_src_services_translation_googletranslationservice_.googletranslationservice.html#httpclient" class="tsd-kind-icon">http<wbr>Client</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static tsd-is-external"><a href="_src_services_translation_googletranslationservice_.googletranslationservice.html#bath_req_sep" class="tsd-kind-icon">BATH_<wbr>REQ_<wbr>SEP</a></li>
@@ -107,8 +108,6 @@
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external"><a href="_src_services_translation_googletranslationservice_.googletranslationservice.html#applytranslation" class="tsd-kind-icon">apply<wbr>Translation</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external"><a href="_src_services_translation_googletranslationservice_.googletranslationservice.html#getbatchtranslateurl" class="tsd-kind-icon">get<wbr>Batch<wbr>Translate<wbr>Url</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external"><a href="_src_services_translation_googletranslationservice_.googletranslationservice.html#gettranslaterequrl" class="tsd-kind-icon">get<wbr>Translate<wbr>Req<wbr>Url</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external"><a href="_src_services_translation_googletranslationservice_.googletranslationservice.html#gettranslation" class="tsd-kind-icon">get<wbr>Translation</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external"><a href="_src_services_translation_googletranslationservice_.googletranslationservice.html#gettranslationvalues" class="tsd-kind-icon">get<wbr>Translation<wbr>Values</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external"><a href="_src_services_translation_googletranslationservice_.googletranslationservice.html#translate" class="tsd-kind-icon">translate</a></li>
 							</ul>
 						</section>
@@ -121,15 +120,21 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-external">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Google<wbr>Translation<wbr>Service<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_src_services_translation_googletranslationservice_.googletranslationservice.html" class="tsd-signature-type">GoogleTranslationService</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Google<wbr>Translation<wbr>Service<span class="tsd-signature-symbol">(</span>apiResponseParser<span class="tsd-signature-symbol">: </span><a href="_src_services_translation_googletranslateapiparser_.googletranslateapiparser.html" class="tsd-signature-type">GoogleTranslateAPIParser</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_src_services_translation_googletranslationservice_.googletranslationservice.html" class="tsd-signature-type">GoogleTranslationService</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/reod/i18n-cleaner/blob/16fc245/src/services/translation/GoogleTranslationService.ts#L18">src/services/translation/GoogleTranslationService.ts:18</a></li>
+									<li>Defined in <a href="https://github.com/reod/i18n-cleaner/blob/cc91037/src/services/translation/GoogleTranslationService.ts#L13">src/services/translation/GoogleTranslationService.ts:13</a></li>
 								</ul>
 							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>apiResponseParser: <a href="_src_services_translation_googletranslateapiparser_.googletranslateapiparser.html" class="tsd-signature-type">GoogleTranslateAPIParser</a></h5>
+								</li>
+							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="_src_services_translation_googletranslationservice_.googletranslationservice.html" class="tsd-signature-type">GoogleTranslationService</a></h4>
 						</li>
 					</ul>
@@ -138,12 +143,22 @@
 			<section class="tsd-panel-group tsd-member-group tsd-is-external">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external">
+					<a name="apiresponseparser" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> api<wbr>Response<wbr>Parser</h3>
+					<div class="tsd-signature tsd-kind-icon">api<wbr>Response<wbr>Parser<span class="tsd-signature-symbol">:</span> <a href="_src_services_translation_googletranslateapiparser_.googletranslateapiparser.html" class="tsd-signature-type">GoogleTranslateAPIParser</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/reod/i18n-cleaner/blob/cc91037/src/services/translation/GoogleTranslationService.ts#L13">src/services/translation/GoogleTranslationService.ts:13</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external">
 					<a name="apiurl" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagPrivate">Private</span> api<wbr>Url</h3>
 					<div class="tsd-signature tsd-kind-icon">api<wbr>Url<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;https://translate.googleapis.com/translate_a/single?client&#x3D;gtx&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/reod/i18n-cleaner/blob/16fc245/src/services/translation/GoogleTranslationService.ts#L16">src/services/translation/GoogleTranslationService.ts:16</a></li>
+							<li>Defined in <a href="https://github.com/reod/i18n-cleaner/blob/cc91037/src/services/translation/GoogleTranslationService.ts#L9">src/services/translation/GoogleTranslationService.ts:9</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -153,17 +168,17 @@
 					<div class="tsd-signature tsd-kind-icon">http<wbr>Client<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> =&nbsp;axios</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/reod/i18n-cleaner/blob/16fc245/src/services/translation/GoogleTranslationService.ts#L18">src/services/translation/GoogleTranslationService.ts:18</a></li>
+							<li>Defined in <a href="https://github.com/reod/i18n-cleaner/blob/cc91037/src/services/translation/GoogleTranslationService.ts#L12">src/services/translation/GoogleTranslationService.ts:12</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-static tsd-is-external">
 					<a name="bath_req_sep" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> BATH_<wbr>REQ_<wbr>SEP</h3>
-					<div class="tsd-signature tsd-kind-icon">BATH_<wbr>REQ_<wbr>SEP<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;:::&quot;</span></div>
+					<div class="tsd-signature tsd-kind-icon">BATH_<wbr>REQ_<wbr>SEP<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;~&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/reod/i18n-cleaner/blob/16fc245/src/services/translation/GoogleTranslationService.ts#L17">src/services/translation/GoogleTranslationService.ts:17</a></li>
+							<li>Defined in <a href="https://github.com/reod/i18n-cleaner/blob/cc91037/src/services/translation/GoogleTranslationService.ts#L10">src/services/translation/GoogleTranslationService.ts:10</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -174,25 +189,39 @@
 					<a name="applytranslation" class="tsd-anchor"></a>
 					<h3>apply<wbr>Translation</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external">
-						<li class="tsd-signature tsd-kind-icon">apply<wbr>Translation<span class="tsd-signature-symbol">(</span>translation<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, locale<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, overrideExisting<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Object</span></li>
+						<li class="tsd-signature tsd-kind-icon">apply<wbr>Translation<span class="tsd-signature-symbol">(</span>translatedValues<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span>, locale<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, overrideExisting<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Object</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/reod/i18n-cleaner/blob/16fc245/src/services/translation/GoogleTranslationService.ts#L95">src/services/translation/GoogleTranslationService.ts:95</a></li>
+									<li>Defined in <a href="https://github.com/reod/i18n-cleaner/blob/cc91037/src/services/translation/GoogleTranslationService.ts#L74">src/services/translation/GoogleTranslationService.ts:74</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Apply array of translated values on locale</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>translation: <span class="tsd-signature-type">string</span></h5>
+									<h5>translatedValues: <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Array of values translated by Goggle</p>
+									</div>
 								</li>
 								<li>
 									<h5>locale: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Locale to apply values on</p>
+									</div>
 								</li>
 								<li>
 									<h5>overrideExisting: <span class="tsd-signature-type">boolean</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>If true, existing values in locale will be replaced by new one.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Object</span></h4>
@@ -209,7 +238,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/reod/i18n-cleaner/blob/16fc245/src/services/translation/GoogleTranslationService.ts#L57">src/services/translation/GoogleTranslationService.ts:57</a></li>
+									<li>Defined in <a href="https://github.com/reod/i18n-cleaner/blob/cc91037/src/services/translation/GoogleTranslationService.ts#L55">src/services/translation/GoogleTranslationService.ts:55</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -253,7 +282,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/reod/i18n-cleaner/blob/16fc245/src/services/translation/GoogleTranslationService.ts#L47">src/services/translation/GoogleTranslationService.ts:47</a></li>
+									<li>Defined in <a href="https://github.com/reod/i18n-cleaner/blob/cc91037/src/services/translation/GoogleTranslationService.ts#L44">src/services/translation/GoogleTranslationService.ts:44</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -287,52 +316,6 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external">
-					<a name="gettranslation" class="tsd-anchor"></a>
-					<h3>get<wbr>Translation</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Translation<span class="tsd-signature-symbol">(</span>result<span class="tsd-signature-symbol">: </span><a href="../modules/_src_services_translation_googletranslationservice_.html#translationresult" class="tsd-signature-type">TranslationResult</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/reod/i18n-cleaner/blob/16fc245/src/services/translation/GoogleTranslationService.ts#L70">src/services/translation/GoogleTranslationService.ts:70</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>result: <a href="../modules/_src_services_translation_googletranslationservice_.html#translationresult" class="tsd-signature-type">TranslationResult</a></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external">
-					<a name="gettranslationvalues" class="tsd-anchor"></a>
-					<h3>get<wbr>Translation<wbr>Values</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Translation<wbr>Values<span class="tsd-signature-symbol">(</span>translation<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/reod/i18n-cleaner/blob/16fc245/src/services/translation/GoogleTranslationService.ts#L86">src/services/translation/GoogleTranslationService.ts:86</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>translation: <span class="tsd-signature-type">string</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external">
 					<a name="translate" class="tsd-anchor"></a>
 					<h3>translate</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external">
@@ -343,10 +326,13 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/_src_services_translation_translationservice_.translationservice.html">TranslationService</a>.<a href="../interfaces/_src_services_translation_translationservice_.translationservice.html#translate">translate</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/reod/i18n-cleaner/blob/16fc245/src/services/translation/GoogleTranslationService.ts#L30">src/services/translation/GoogleTranslationService.ts:30</a></li>
+									<li>Defined in <a href="https://github.com/reod/i18n-cleaner/blob/cc91037/src/services/translation/GoogleTranslationService.ts#L27">src/services/translation/GoogleTranslationService.ts:27</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Translate locale using Google Translate API.</p>
+								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -420,6 +406,9 @@
 					<li class=" tsd-kind-external-module tsd-is-external">
 						<a href="../modules/_src_services_file_system_onlyjsonsanitizestrategy_.html">"src/services/file-<wbr>system/<wbr>Only<wbr>Json<wbr>Sanitize<wbr>Strategy"</a>
 					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="../modules/_src_services_translation_googletranslateapiparser_.html">"src/services/translation/<wbr>Google<wbr>TranslateAPIParser"</a>
+					</li>
 					<li class="current tsd-kind-external-module tsd-is-external">
 						<a href="../modules/_src_services_translation_googletranslationservice_.html">"src/services/translation/<wbr>Google<wbr>Translation<wbr>Service"</a>
 					</li>
@@ -469,6 +458,9 @@
 								<a href="_src_services_translation_googletranslationservice_.googletranslationservice.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external">
+								<a href="_src_services_translation_googletranslationservice_.googletranslationservice.html#apiresponseparser" class="tsd-kind-icon">api<wbr>Response<wbr>Parser</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external">
 								<a href="_src_services_translation_googletranslationservice_.googletranslationservice.html#apiurl" class="tsd-kind-icon">api<wbr>Url</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external">
@@ -487,21 +479,12 @@
 								<a href="_src_services_translation_googletranslationservice_.googletranslationservice.html#gettranslaterequrl" class="tsd-kind-icon">get<wbr>Translate<wbr>Req<wbr>Url</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external">
-								<a href="_src_services_translation_googletranslationservice_.googletranslationservice.html#gettranslation" class="tsd-kind-icon">get<wbr>Translation</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external">
-								<a href="_src_services_translation_googletranslationservice_.googletranslationservice.html#gettranslationvalues" class="tsd-kind-icon">get<wbr>Translation<wbr>Values</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external">
 								<a href="_src_services_translation_googletranslationservice_.googletranslationservice.html#translate" class="tsd-kind-icon">translate</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module tsd-is-external">
-						<a href="../modules/_src_services_translation_googletranslationservice_.html#translationresult" class="tsd-kind-icon">Translation<wbr>Result</a>
-					</li>
 					<li class=" tsd-kind-variable tsd-parent-kind-external-module tsd-is-external tsd-is-not-exported">
 						<a href="../modules/_src_services_translation_googletranslationservice_.html#httpadapter" class="tsd-kind-icon">http<wbr>Adapter</a>
 					</li>
