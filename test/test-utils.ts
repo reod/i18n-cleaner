@@ -126,7 +126,7 @@ export async function createPlayground(): Promise<void> {
   );
 };
 
-export async function clearPlayground(): Promise<void> {
+export async function cleanPlayground(): Promise<void> {
   for (const { name } of getPlaygroundFiles()) {
     const path = join(getPlaygroundPath(), name);
     const backup = `${path}_i18n-manager_backup_file`;

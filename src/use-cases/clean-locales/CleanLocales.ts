@@ -34,30 +34,38 @@ export class CleanLocales implements UseCase {
     );
 
     if (command.fillMissing) {
-      localesToClean = await this.getFilledLocales(refLocale, localesToClean);
+      localesToClean = this.getFilledLocales(refLocale, localesToClean);
     }
 
     if (command.sort) {
-      localesToClean = await this.getSortedLocales(refLocale, localesToClean);
+      localesToClean = this.getSortedLocales(refLocale, localesToClean);
     }
 
     if (command.save) {
-      for (let i = 0, l = localesToCleanPaths.length; i < l; i++) {
-        const path = localesToCleanPaths[i];
-        const content = localesToClean[i];
-
-        await this.fsService.saveContentToFile(path, content);
+      try {
+        await this.saveLocales(localesToCleanPaths, localesToClean);
+      } catch (e) {
+        responder.cannotCleanLocales(e);
       }
     }
 
     responder.localesCleaned(refLocale, localesToClean);
   }
 
-  private async getFilledLocales(refLocale: any, localesToClean: any[]): Promise<any[]> {
+  private getFilledLocales(refLocale: any, localesToClean: any[]): any[] {
     return this.cService.fillMissingFields(refLocale, localesToClean);
   }
 
-  private async getSortedLocales(refLocale: any, localesToClean: any[]): Promise<any[]> {
+  private getSortedLocales(refLocale: any, localesToClean: any[]): any[] {
     return this.cService.sortFields(refLocale, localesToClean);
+  }
+
+  private async saveLocales(paths: string[], locales: any[]) {
+    for (let i = 0, l = paths.length; i < l; i++) {
+        const path = paths[i];
+        const content = locales[i];
+
+        await this.fsService.saveContentToFile(path, content);
+      }
   }
 }

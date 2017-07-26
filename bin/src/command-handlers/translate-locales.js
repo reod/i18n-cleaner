@@ -14,8 +14,6 @@ async function translateLocales(baseLocalePath, sourceLng, targetLng, options) {
     const command = new Command_1.Command(baseLocalePath, sourceLng, targetLng, overrideExisting, outputFileName, save);
     await translateLocalesUC.execute(command, {
         localesTranslated(base, translated) {
-            console.log('Locale translated.');
-            console.log('translated:');
             console.log(translated);
         },
         cannotTranslateLocales(e) {

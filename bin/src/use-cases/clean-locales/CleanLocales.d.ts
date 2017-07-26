@@ -10,4 +10,5 @@ export declare class CleanLocales implements UseCase {
     execute(command: Command, responder: Responder): Promise<void>;
     private getFilledLocales(refLocale, localesToClean);
     private getSortedLocales(refLocale, localesToClean);
+    private saveLocales(paths, locales);
 }

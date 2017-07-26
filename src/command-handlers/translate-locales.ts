@@ -24,10 +24,6 @@ export async function translateLocales(baseLocalePath: string, sourceLng: string
 
   await translateLocalesUC.execute(command, {
     localesTranslated(base: any, translated: any[]): void {
-      console.log('Locale translated.');
-      // console.log('source:');
-      // console.log(base);
-      console.log('translated:');
       console.log(translated);
     },
 

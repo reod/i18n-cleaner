@@ -13,10 +13,6 @@ async function cleanLocales(directory, baseLocale, options) {
     const command = new Command_1.Command(directory, baseLocale, fillMissing, sort, save);
     await cleanLocalesUC.execute(command, {
         localesCleaned(base, cleanedLocales) {
-            console.log('i18n files cleaned.');
-            console.log('base file:');
-            console.log(base);
-            console.log('cleaned files:');
             console.log(cleanedLocales);
         },
         cannotCleanLocales(e) {

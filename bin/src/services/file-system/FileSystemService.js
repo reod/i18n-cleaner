@@ -38,7 +38,7 @@ class FileSystemService {
             await writeFileAsync(backupPath, originalContent);
         }
         const contentAsString = JSON.stringify(content, null, 2);
-        await fs_1.writeFile(path, contentAsString);
+        await writeFileAsync(path, contentAsString);
     }
     getBackupPath(path) {
         const fileName = this.getFileName(path);

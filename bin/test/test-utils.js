@@ -127,7 +127,7 @@ async function createPlayground() {
 }
 exports.createPlayground = createPlayground;
 ;
-async function clearPlayground() {
+async function cleanPlayground() {
     for (const { name } of getPlaygroundFiles()) {
         const path = path_1.join(getPlaygroundPath(), name);
         const backup = `${path}_i18n-manager_backup_file`;
@@ -138,6 +138,6 @@ async function clearPlayground() {
         catch (e) { }
     }
 }
-exports.clearPlayground = clearPlayground;
+exports.cleanPlayground = cleanPlayground;
 ;
 //# sourceMappingURL=test-utils.js.map

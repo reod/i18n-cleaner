@@ -17,10 +17,6 @@ export async function cleanLocales(directory: string, baseLocale: string, option
 
   await cleanLocalesUC.execute(command, {
     localesCleaned(base: any, cleanedLocales: any[]) {
-      console.log('i18n files cleaned.');
-      console.log('base file:');
-      console.log(base);
-      console.log('cleaned files:');
       console.log(cleanedLocales);
     },
 

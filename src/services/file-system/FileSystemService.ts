@@ -50,7 +50,7 @@ export class FileSystemService {
     }
 
     const contentAsString = JSON.stringify(content, null, 2);
-    await writeFile(path, contentAsString);
+    await writeFileAsync(path, contentAsString);
   }
 
   getBackupPath(path: string): string {

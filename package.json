@@ -18,7 +18,7 @@
     "generate-doc": "typedoc --out docs/ src/",
     "generate-code-coverage-raport": "jest --coverage",
     "create-playground": "node -e 'require(`./bin/test/test-utils`).createPlayground()'",
-    "clear-playground": "node -e 'require(`./bin/test/test-utils`).clearPlayground()'"
+    "clean-playground": "node -e 'require(`./bin/test/test-utils`).cleanPlayground()'"
   },
   "author": "Remek Ambroziak <remek.ambroziak@gmail.com>",
   "license": "ISC",

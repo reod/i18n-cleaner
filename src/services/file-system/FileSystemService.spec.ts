@@ -9,7 +9,7 @@ import {
   getPlaygroundFilesPaths,
   createSamplePath,
   createPlayground,
-  clearPlayground
+  cleanPlayground
 } from './../../../test/test-utils';
 
 const readFileAsync = promisify(readFile);
@@ -25,7 +25,7 @@ describe('FileSystemService', () => {
   });
 
   afterAll(async () => {
-    await clearPlayground();
+    await cleanPlayground();
   });
 
   it(`should return files from specified directory with full paths`, async () => {
