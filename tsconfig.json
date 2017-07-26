@@ -11,7 +11,8 @@
   },
   "files": [
     "src/i18n-manager.ts",
-    "test/test-utils.ts"
+    "test/test-utils.ts",
+    "typings/axios.d.ts"
   ],
   "exclude": [
     "node_modules",
